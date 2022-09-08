@@ -48,7 +48,6 @@ class ViewPokimon extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
-    //addedItems: state.addedItems
   };
 };
 const mapDispatchToProps = (dispatch) => {
