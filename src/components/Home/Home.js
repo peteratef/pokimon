@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import * as actions from "../actions/pokemonActions";
 import Pagination from "../Pagination/Pagination";
-import MenuItem from "./MenuItem";
+import EachPokemon from "./EachPokemon";
 import "./Home.css";
 class Home extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class Home extends Component {
     let itemList = this.state.pageOfItems.map((item) => {
       console.log(item, "item");
       return (
-        <MenuItem
+        <EachPokemon
           key={item.name}
           item={item}
           onViewDetails={(id) => {
