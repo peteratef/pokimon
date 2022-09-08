@@ -30,7 +30,9 @@ class ViewPokimon extends Component {
   render() {
     return (
       <div className="container">
-        <a onClick={() => this.props.history.push("/")}>Back to all Pokimon</a>
+        <a className="pointer" onClick={() => this.props.history.push("/")}>
+          Back to all Pokimon
+        </a>
         <br />
 
         <div>
