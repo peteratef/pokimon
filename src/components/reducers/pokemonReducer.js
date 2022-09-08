@@ -9,7 +9,6 @@ const initState = {
   total: 0,
 };
 const cartReducer = (state = initState, action) => {
-  console.log(action.items, "action");
   switch (action.type) {
     case ON_INIT_FUNCTION:
       return {

@@ -24,7 +24,6 @@ class Home extends Component {
   }
   componentDidMount() {
     this.props.onInitFunction("");
-    console.log(this.props.items, "items");
   }
 
   handleInputChange = (value) => {
@@ -34,16 +33,13 @@ class Home extends Component {
     this.props.onChangeFilter(inputValueq);
   };
   render() {
-    console.log(this.props.items, "items all in home");
     let itemList = this.state.pageOfItems.map((item) => {
-      console.log(item, "item");
       return (
         <EachPokemon
           key={item.name}
           item={item}
           onViewDetails={(id) => {
-            // console.log(id, "id");
-            // this.props.history.push(`/cart/edit/${id}`);
+            this.props.history.push(`/view/${id}`);
           }}
         />
       );
@@ -83,7 +79,6 @@ class Home extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  // console.log(state.items, "items");
   return {
     items: state.items,
     fitlteredItems: state.fitlteredItems,
