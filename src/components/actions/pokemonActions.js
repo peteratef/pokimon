@@ -6,16 +6,25 @@ import {
 //add cart action
 export const initFunction = () => {
   return async (dispatch, getState) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`)
-      .then((response) => response.json())
-      .then((data) => {
-        // dispatch(changeValue(user));
+    try {
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`,
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data);
+      // dispatch(changeValue(user));
 
-        dispatch({
-          type: ON_INIT_FUNCTION,
-          items: data.results,
-        });
+      dispatch({
+        type: ON_INIT_FUNCTION,
+        items: data.results,
       });
+    } catch (error) {
+      console.error("Failed to fetch Pokémon data:", error);
+      // Optionally dispatch an error action here
+    }
   };
 };
 export const changeFilter = (value) => {
